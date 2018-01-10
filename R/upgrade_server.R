@@ -83,7 +83,7 @@ upgrade_server_preview <- function() {
   url <- "https://www.rstudio.com/products/rstudio/download/preview/"
   webpage <- xml2::read_html(url)
   online_version <- webpage %>%
-    rvest::html_node("br+ code") %>%
+    rvest::html_node("h2+ p") %>%
     rvest::html_text() %>%
     stringr::str_extract(pattern) %>%
     .[[1]]
